@@ -100,6 +100,7 @@ import { SettingsDialog } from './components/SettingsDialog.js';
 import { setUpdateHandler } from '../utils/handleAutoUpdate.js';
 import { appEvents, AppEvent } from '../utils/events.js';
 import { isNarrowWidth } from './utils/isNarrowWidth.js';
+import { CustomAppWarning } from './components/CustomAppWarning.js';
 
 const CTRL_EXIT_PROMPT_DURATION_MS = 1000;
 
@@ -905,6 +906,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
               {!settings.merged.hideBanner && (
                 <Header version={version} nightly={nightly} />
               )}
+              <CustomAppWarning></CustomAppWarning>
               {!settings.merged.hideTips && <Tips config={config} />}
             </Box>,
             ...history.map((h) => (
